@@ -33,7 +33,7 @@ function drawGrid(dimension) {
             singleBox = document.createElement("div");
 
             singleBox.classList.add("single-box");
-            singleBox.style.cssText = "flex: auto; background-color: white;";
+            singleBox.style.cssText = "flex: auto;";
 
             singleBox.addEventListener("mouseover", changeColor);
 
@@ -44,7 +44,7 @@ function drawGrid(dimension) {
     }
 }
 
-function selectColor() {
+function getRandomColor() {
     let colorValues = [];
 
     for (let i = 0; i < 3; i++) {
@@ -52,12 +52,33 @@ function selectColor() {
         colorValues.push(randomValue);
     }
 
-    return `rgb(${colorValues[0]}, ${colorValues[1]}, ${colorValues[2]})`;
-}
+    return `rgba(${colorValues[0]}, ${colorValues[1]}, ${colorValues[2]})`;
+};
 
 function changeColor(event) {
-    if (event.target.style.backgroundColor !== "white") {
-        return;
+    /* This keeps the color constant */
+    // if (event.target.style.backgroundColor === "") {
+    //     event.target.style.backgroundColor = getRandomColor();
+    //     event.target.style.opacity = 0.2;
+    // } else {
+    //     let opacity = event.target.style.opacity;
+    //     if (opacity !== "1") {
+    //         event.target.style.opacity = parseFloat(opacity) + 0.2;
+    //     } else {
+    //         return;
+    //     }
+    // }
+
+    if (event.target.style.backgroundColor === "") {
+        event.target.style.opacity = 0.2;
+    } else {
+        let opacity = event.target.style.opacity;
+        if (opacity !== "1") {
+            event.target.style.opacity = parseFloat(opacity) + 0.2;
+        }
     }
-    event.target.style.backgroundColor = selectColor();
+
+    event.target.style.backgroundColor = getRandomColor();
 }
+
+drawGrid(25);

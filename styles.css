@@ -28,7 +28,7 @@ button {
 }
 
 .grid-container {
-    width: 600px;
+    width: 750px;
     height: 750px;
     border: 2.5px solid #000000;
     margin: 24px;
@@ -36,6 +36,7 @@ button {
     display: flex;
     flex-direction: column;
     gap: 1px;
+    background-color: rgb(25, 25, 25);
 }
 
 .footer {
