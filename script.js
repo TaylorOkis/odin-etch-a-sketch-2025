@@ -1,7 +1,3 @@
-// let gridDiv = document.querySelector(".grid-container");
-
-// let div = document.createElement("div");
-
 const button = document.querySelector("#btn")
 
 button.addEventListener("click", () => {
